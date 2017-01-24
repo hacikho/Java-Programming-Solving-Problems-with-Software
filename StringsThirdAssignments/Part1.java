@@ -7,8 +7,6 @@
  */
 import edu.duke.*;
 public class Part1 {
-
-    
     public int findStopCodon(String dnaStr, int startIndex, String stopCodon){
         int currIndex = dnaStr.indexOf(stopCodon, startIndex + 3);
         while(currIndex!=-1){
@@ -56,7 +54,6 @@ public class Part1 {
             if(currentGene.isEmpty()){
                 break;
             }
-            
             geneList.add(currentGene);
             startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
         }
@@ -79,29 +76,63 @@ public class Part1 {
     
     public int countCTG(String dna){
         int counter = 0;
-        for(int i = 0 ; i<dna.length(); i++){
-            if(dna.subString(i, i+3).equals("CTG")){
-                
+        for(int i = 0 ; i<dna.length(); i+=3){
+            if(dna.substring(i, i+3).equals("CTG")){
+                counter += 1;
             }
         }
+        return counter;
     }
     
     public void testOn(String dna){
-        System.out.println("Testing printAllGenes on " + dna);
+        //System.out.println("Testing printAllGenes on " + dna);
         StorageResource genes = getAllGenes(dna);
         for(String g: genes.data()){
             System.out.println(g);
         }
     }
     
+    public void processGene(StorageResource sr){
+        for(String g: sr.data()){
+            if(g.length()>9){
+                System.out.println("Greater than 9 char " + g);
+            }
+        }
+    }
+    
     public void test(){
-        //testOn("ATGATCTAATTTATGCTGCAACGGTGAAGA");
+        FileResource fr = new FileResource();
+        String dna = fr.asString();
+        testOn(dna);
         //testOn("");
         //testOn("ATGATCATAAGAAGATAATAGAGGGCCATGTAA");
-        System.out.println(cgRatio("ATGATCATAAGAAGATAATAGAGGGCCATGTAA"));
+        //System.out.println(cgRatio("ATGATCATAAGAAGATAATAGAGGGCCATGTAA"));
+        //System.out.println(countCTG("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA"));
+        //System.out.println(getAllGenes("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA"));
+        
+       
+        
+        //System.out.println(dna);
+        
+       // StorageResource allGenesList = getAllGenes(dna);
+       /*
+        for(String g: getAllGenes(dna).data()){
+            System.out.println(g);
+        }
+        System.out.println("done");
+        /*StorageResource allGenesList = getAllGenes(dna);
+        //List String
+        for(String g: allGenesList.data()){
+            System.out.println(g);
+        }
+        */
+   
+       /*
+        for(String g: getAllGenes(dna)){
+            System.out.println(g);
+        }
+        */
     }
-
-
 }
 
 
