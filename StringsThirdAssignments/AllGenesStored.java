@@ -52,16 +52,19 @@ public class AllGenesStored {
      public void printAllGenes(String dna1){
        
         int startIndex = 0;
-        
+        int counter = 0;
         while(true){
             String currentGene = findGene(dna1, startIndex);
             if(currentGene.isEmpty()){
                 break;
             }
-          
+            if(currentGene.length()>60){
+                counter +=1;
+            }
             System.out.println(currentGene);
             startIndex = dna1.indexOf(currentGene, startIndex) + currentGene.length();
         }
+        System.out.println("Genes that greater tha 60 : " + counter);
         
       
     }
@@ -76,11 +79,13 @@ public class AllGenesStored {
     }
     
     public void test(){
-      FileResource fr = new FileResource("brca1line.fa");
+      FileResource fr = new FileResource("GRch38dnapart.fa");
       String dna = fr.asString();
+      dna = dna.toUpperCase();
 
         //System.out.println(dna); 
         printAllGenes(dna.toString());
+      
         //testOn(dna);
         //printAllGenes("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA");
         //testOn("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA");
@@ -88,7 +93,7 @@ public class AllGenesStored {
        
     }
  
-    
+   
 }
 
 
