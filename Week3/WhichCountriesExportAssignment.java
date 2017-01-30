@@ -26,22 +26,21 @@ public class WhichCountriesExportAssignment {
     }
     
     public String countryInfo(CSVParser parser, String country){
-        
-            if(record.get("Country") != country){
-                String result = record.get(country) + " : " + record.get("Exports") + " : " 
-                + record.get("Value(dollars)");
-                return  result;
-            }else{
-                return   "NOT FOUND";
+        String result = "NOT FOUND";
+       for(CSVRecord record:parser){
+           if(record.get("Country").contains(country)){
+                result = country + " : " + record.get("Exports") + record.get("Value (dollars)");
             }
-        
-        return "";
+        }
+    
+        return result;
     }
     
     public void tester(){
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
-        System.out.println(countryInfo(parser, "Germany"));
+        String a =countryInfo(parser, "Germany");
+        System.out.println(a);
     }
 }
 
