@@ -1,4 +1,4 @@
-
+                            
 /**
  * Write a description of AllGenesStored here.
  * 
@@ -49,15 +49,16 @@ public class AllGenesStored {
         return dna.substring(startIndex, minIndex+3);
     }
  
-     public void printAllGenes(String dna1){
-       
+     public StorageResource getAllGenes(String dna){
+        StorageResource geneList = new StorageResource();
         int startIndex = 0;
         int counter = 0;
         while(true){
-            String currentGene = findGene(dna1, startIndex);
+            String currentGene = findGene(dna, startIndex);
             if(currentGene.isEmpty()){
                 break;
             }
+<<<<<<< Updated upstream
             if(currentGene.length()>60){
                 counter +=1;
             }
@@ -66,19 +67,28 @@ public class AllGenesStored {
         }
         System.out.println("Genes that greater tha 60 : " + counter);
         
+=======
+            geneList.add(currentGene);
+            startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
+        }
+        return geneList;
+>>>>>>> Stashed changes
       
     }
     
     public void testOn(String dna){
-        //System.out.println("Testing printAllGenes on " + dna);
-         printAllGenes(dna);
-         //
-        //for(String g: genes.data()){
-         //   System.out.println(g);
-        //}
+        System.out.println("Testing printAllGenes on " + dna);
+        
+        StorageResource genes = getAllGenes(dna);
+        
+        System.out.println(genes.size());
+        for(String g: genes.data()){
+            System.out.println(g);
+        }
     }
     
     public void test(){
+<<<<<<< Updated upstream
       FileResource fr = new FileResource("GRch38dnapart.fa");
       String dna = fr.asString();
       dna = dna.toUpperCase();
@@ -86,8 +96,24 @@ public class AllGenesStored {
         //System.out.println(dna); 
         printAllGenes(dna.toString());
       
+=======
+      
+       FileResource fr = new FileResource("brca1line.fa");
+      String dna = fr.asString();
+      dna = dna.toUpperCase();
+
+
+
+        //System.out.println(dna); 
+        StorageResource list = getAllGenes(dna);
+        System.out.println("list siz" + list.size());
+       for(String g: list.data()){
+            System.out.println(g);
+        }
+        
+>>>>>>> Stashed changes
         //testOn(dna);
-        //printAllGenes("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA");
+        //testOn("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA");
         //testOn("ATGCTGATCATAAGAAGATAATAGAGGGCCATGTAA");
 
        

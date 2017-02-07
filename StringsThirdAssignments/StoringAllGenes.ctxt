@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.params=dna\ index
+comment0.target=int\ findStopIndex(java.lang.String,\ int)
+comment0.text=The\ method\ finds\ the\ first\ occurrence\ of\ each\ stop\ codon\ to\ the\ right\ of\ index
+comment1.params=dna
+comment1.target=edu.duke.StorageResource\ storeAll(java.lang.String)
+comment1.text=The\ method\ creates\ and\ returns\ a\ StorageResource\ containing\ the\ genes\ found
+comment2.params=dna
+comment2.target=float\ cgRatio(java.lang.String)
+comment2.text=The\ method\ returns\ the\ ratio\ of\ C\uFFFDs\ and\ G\uFFFDs\ in\ dna\ as\ a\ fraction\ of\ the\ entire\ strand\ of\ DNA
+comment3.params=s
+comment3.target=void\ FindCTG(edu.duke.StorageResource)
+comment3.text=Find\ how\ many\ times\ the\ codon\ CTG\ appears\ in\ a\ strand\ of\ DNA
+comment4.params=sr
+comment4.target=void\ printGenes(edu.duke.StorageResource)
+comment4.text=The\ method\ processes\ all\ the\ strings\ in\ sr
+comment5.params=
+comment5.target=void\ testStorageFinder()
+comment6.params=
+comment6.target=void\ test()
+numComments=7
