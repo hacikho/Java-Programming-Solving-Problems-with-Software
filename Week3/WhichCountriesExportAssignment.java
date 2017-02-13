@@ -71,13 +71,13 @@ public class WhichCountriesExportAssignment {
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
         String a =countryInfo(parser, "Nauru");
-        System.out.println(a);
+        //System.out.println(a);
         
-        parser = fr.getCSVParser();
-        listExportersTwoProducts(parser, "gold", "diamonds");
+        //parser = fr.getCSVParser();
+        //listExportersTwoProducts(parser, "cotton", "flowers");
         
-        parser = fr.getCSVParser();
-        System.out.println("# of countries export gold : " + numberOfExporters(parser, "gold"));
+        //parser = fr.getCSVParser();
+        //System.out.println("# of countries export gold : " + numberOfExporters(parser, "gold"));
         
         parser = fr.getCSVParser();
         bigExporters(parser, "$999,999,999,999");
